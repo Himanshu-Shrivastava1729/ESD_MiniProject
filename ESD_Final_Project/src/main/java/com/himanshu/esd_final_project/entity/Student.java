@@ -15,8 +15,8 @@ import java.util.List;
 @Table(name = "students")
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long sid;
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @OneToMany(mappedBy = "student")
     private List<Alumni> alumni;

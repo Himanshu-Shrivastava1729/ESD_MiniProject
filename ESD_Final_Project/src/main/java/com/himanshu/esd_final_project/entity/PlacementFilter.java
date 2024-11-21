@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "placememt_filter")
 public class PlacementFilter {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne

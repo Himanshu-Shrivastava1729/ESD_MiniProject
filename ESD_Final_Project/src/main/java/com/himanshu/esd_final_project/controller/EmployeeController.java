@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmployeeController {
     private final EmployeeService employeeService;
 
-    @PostMapping("/create")
+    @PostMapping("/")
     public ResponseEntity<String> createEmployee(@RequestBody EmployeeRequest request)
     {
         boolean isCreated = employeeService.createEmployee(request);

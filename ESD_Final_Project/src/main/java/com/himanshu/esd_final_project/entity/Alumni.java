@@ -8,8 +8,8 @@ import java.util.List;
 @Table(name = "alumni")
 public class Alumni {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long aid;
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     //sid here is fk referencing sid of students table.
     @ManyToOne

@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name = "domains")
 public class Domains {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @OneToMany(mappedBy = "domain")

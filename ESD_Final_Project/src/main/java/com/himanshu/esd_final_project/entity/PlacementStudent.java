@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class PlacementStudent {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne

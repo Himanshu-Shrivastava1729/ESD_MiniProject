@@ -16,7 +16,7 @@ import java.util.List;
 @Table(name = "placement")
 public class Placement {
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+//        @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
 
         //FK to organisation table,org column.

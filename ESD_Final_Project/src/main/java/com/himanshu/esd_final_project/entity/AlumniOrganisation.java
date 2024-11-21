@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class AlumniOrganisation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     //FK to organistaion table's org column.

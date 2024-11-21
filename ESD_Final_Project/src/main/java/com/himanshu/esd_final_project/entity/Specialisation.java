@@ -16,7 +16,7 @@ import java.util.List;
 @Table(name = "specialisation")
 public class Specialisation {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @OneToMany(mappedBy = "specialisation")
