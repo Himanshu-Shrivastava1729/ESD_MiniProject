@@ -17,4 +17,8 @@ public class StudentService {
     public List<Object[]> showAllStudents() {
         return studentRepo.showAllStudents();
     }
+
+    public List<Object[]> showStudentsByKeyword(String keyword) {
+        return studentRepo.showStudentsByKeyword(keyword);
+    }
 }

@@ -20,4 +20,32 @@ public interface StudentRepo extends JpaRepository<Student, Long> {
             " exists(select 1 from placement_student p where s.id = p.sid) then 'Placed' else " +
             "'Unplaced' end as placement_status" + " from students s" ,nativeQuery = true)
     public List<Object[]> showAllStudents();
+
+    @Query(value = "select " +
+            "s.first_name ,s.last_name,d.program,p.org,ao.org,s.graduation_year, " +
+            "case " +
+            "when exists(select 1 from alumni a where s.id = a.sid) then 'Yes' " +
+            "else 'No' " +
+            "end as isAlumni, " +
+            "case " +
+            "when exists(select 1 from placement p where p.id = s.id) then 'Placed' " +
+            "else 'Unplaced' " +
+            "end as is_placed " +
+            "from students s join domains d " +
+            "on s.domain = d.id " +
+            "left join placement_student ps " +
+            "on ps.sid = s.id " +
+            "left join placement p " +
+            "on p.id = ps.place_Id " +
+            "left join alumni a " +
+            "on a.id = s.id " +
+            "left join alumni_org ao " +
+            "on a.id = ao.alumni_id " +
+            "where " +
+            "(lower(p.org) like concat('%',lower(:keyword),'%')) or " +
+            "(lower(ao.org) like concat('%',lower(:keyword),'%')) or " +
+            "(s.graduation_year = :keyword) or " +
+            "(lower(d.program) like concat('%',lower(:keyword),'%')) " +
+            "order by s.first_name",nativeQuery = true)
+    public List<Object[]> showStudentsByKeyword(String keyword);
 }
