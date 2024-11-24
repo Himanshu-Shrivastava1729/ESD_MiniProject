@@ -18,6 +18,9 @@ public class StudentMapper {
                 .gradYear(request.gradYear())
                 .organization(request.organization())
                 .specialisation(request.specialisation())
+                .rollno(request.rollno())
+                .placement(request.placement())
+                .photoPath(request.photo_path())
                 .build();
     }
 

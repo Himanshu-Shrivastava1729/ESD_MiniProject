@@ -30,8 +30,11 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "email")
+    @Column(name = "email" ,unique = true,nullable = false)
     private String email;
+
+    @Column(name = "rollno",unique = true,nullable = false)
+    private String rollno;
 
     @Column(name = "cgpa")
     private int cgpa;
@@ -54,5 +57,10 @@ public class Student {
     private Specialisation specialisation;
 
     //placement_id FK.
+    @ManyToOne
+    @JoinColumn(name = "place_id")
+    private Placement placement;
 
+    @Column(name = "photo_path")
+    private String photoPath;
 }

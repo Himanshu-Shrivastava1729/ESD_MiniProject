@@ -28,6 +28,9 @@ public class Placement {
        private List<PlacementStudent> placementStudents;
 
        @OneToMany(mappedBy = "placement")
+       private List<Student> students;
+
+       @OneToMany(mappedBy = "placement")
        private List<PlacementFilter> placementFilters;
 
        @Column(name = "profile")

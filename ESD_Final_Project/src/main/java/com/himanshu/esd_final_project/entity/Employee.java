@@ -29,9 +29,11 @@ public class Employee {
     @Column(name = "photograph_path")
     private String photographPath;
 
-    @ManyToOne
-    @JoinColumn(name = "department",referencedColumnName = "name")
-    private Departments departments;
+//    @ManyToOne
+//    @JoinColumn(name = "department",referencedColumnName = "name")
+//    private Departments department;
+    @Column(name = "department")
+    private String department;
 
     @Column(name = "email")
     private String email;

@@ -1,6 +1,7 @@
 package com.himanshu.esd_final_project.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.himanshu.esd_final_project.entity.Departments;
 import jakarta.validation.constraints.*;
 
 public record EmployeeRequest(
@@ -15,6 +16,9 @@ public record EmployeeRequest(
 
         @JsonProperty("photograph_path")
         String photographPath,
+
+        @JsonProperty("department")
+        String departmentName,
 
         @NotNull(message = "email required")
         @Email(message = "email required")

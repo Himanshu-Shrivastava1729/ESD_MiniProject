@@ -3,6 +3,7 @@ package com.himanshu.esd_final_project.service;
 import com.himanshu.esd_final_project.dto.EmployeeRequest;
 import com.himanshu.esd_final_project.dto.LoginRequest;
 import com.himanshu.esd_final_project.entity.Employee;
+import com.himanshu.esd_final_project.exception.EmployeeNotFoundException;
 import com.himanshu.esd_final_project.helper.Encryption;
 import com.himanshu.esd_final_project.helper.JWTHelper;
 import com.himanshu.esd_final_project.mapper.EmployeeMapper;
@@ -37,6 +38,9 @@ public class EmployeeService {
 
     public String login(@Valid LoginRequest request) {
         Employee employee = getEmployeeByEmail(request.email());
+        if(employee == null) {
+            throw new EmployeeNotFoundException("Employee with email " + request.email() + " not found");
+        }
         if(!encryption.validates(request.password(), employee.getPassword()))
         {
             return "Login failed";

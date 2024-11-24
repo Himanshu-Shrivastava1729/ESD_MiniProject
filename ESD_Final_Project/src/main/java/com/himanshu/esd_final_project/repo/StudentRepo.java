@@ -28,7 +28,7 @@ public interface StudentRepo extends JpaRepository<Student, Long> {
             "else 'No' " +
             "end as isAlumni, " +
             "case " +
-            "when exists(select 1 from placement p where p.id = s.id) then 'Placed' " +
+            "when exists(select 1 from placement_student p where p.sid = s.id) then 'Placed' " +
             "else 'Unplaced' " +
             "end as is_placed " +
             "from students s join domains d " +
