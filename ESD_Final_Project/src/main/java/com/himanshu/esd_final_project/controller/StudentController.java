@@ -3,22 +3,21 @@ package com.himanshu.esd_final_project.controller;
 import com.himanshu.esd_final_project.entity.Student;
 import com.himanshu.esd_final_project.service.StudentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//@CrossOrigin
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/student")
 public class StudentController {
     private final StudentService studentService;
     @GetMapping("/")
-    public List<Object[]> showAllStudents()
+    public ResponseEntity<List<Object[]>> showAllStudents()
     {
-        return studentService.showAllStudents();
+        return ResponseEntity.ok(studentService.showAllStudents());
     }
     @GetMapping("/{keyword}")
     public List<Object[]> showStudentsByKeyword(@PathVariable String keyword)

@@ -16,10 +16,17 @@ import java.util.Map;
 @Repository
 public interface StudentRepo extends JpaRepository<Student, Long> {
 
-    @Query(value = "select s.first_name,s.last_name,s.email,case when" +
-            " exists(select 1 from placement_student p where s.id = p.sid) then 'Placed' else " +
-            "'Unplaced' end as placement_status" + " from students s" ,nativeQuery = true)
+//    @Query(value = "select s.id,s.first_name,s.last_name,s.email,case when" +
+//            " exists(select 1 from placement_student p where s.id = p.sid) then 'Placed' else " +
+//            "'Unplaced' end as placement_status" + " from students s" ,nativeQuery = true)
+//    public List<Object[]> showAllStudents();
+
+    @Query("SELECT s.id, s.firstName, s.lastName, s.email, " +
+            "CASE WHEN EXISTS (SELECT p FROM PlacementStudent p WHERE p.student.id = s.id) " +
+            "THEN 'Placed' ELSE 'Unplaced' END AS placementStatus " +
+            "FROM Student s")
     public List<Object[]> showAllStudents();
+
 
     @Query(value = "select " +
             "s.first_name ,s.last_name,d.program,p.org,ao.org,s.graduation_year, " +

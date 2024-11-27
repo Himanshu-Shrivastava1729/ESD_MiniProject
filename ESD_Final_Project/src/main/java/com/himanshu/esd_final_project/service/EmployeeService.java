@@ -33,7 +33,7 @@ public class EmployeeService {
 
     public Employee getEmployeeByEmail(String email) {
         return employeeRepo.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Employee with email " + email + " not found"));
+                .orElseThrow(() -> new EmployeeNotFoundException("Employee with email " + email + " not found"));
     }
 
     public String login(@Valid LoginRequest request) {
@@ -43,7 +43,7 @@ public class EmployeeService {
         }
         if(!encryption.validates(request.password(), employee.getPassword()))
         {
-            return "Login failed";
+            throw new EmployeeNotFoundException("Invalid password");
         }
         return jWTHelper.generateToken(request.email());
     }

@@ -23,8 +23,10 @@ public class StudentService {
 
     public List<Object[]> showStudentsByKeyword(String keyword) {
         List<Object[]> objects =  studentRepo.showStudentsByKeyword(keyword);
-        if(objects == null)
+//        System.out.println("obj null");
+        if(objects.isEmpty())
         {
+//            System.out.println("obj null");
             throw  new StudentNotFoundException(String.format("Student with keyword %s not found", keyword));
         }
         return objects;
