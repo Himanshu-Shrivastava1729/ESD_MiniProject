@@ -109,8 +109,8 @@ spring.jpa.properties.hibernate.format_sql=true
 | Variable Name                          | Description                           | Default Value                |
 |----------------------------------------|---------------------------------------|------------------------------|
 | SPRING_DATASOURCE_URL                | JDBC URL for the database             | jdbc:mysql://localhost:3306/placement_db |
-| SPRING_DATASOURCE_USERNAME           | Database username                     | (set by user)               |
-| SPRING_DATASOURCE_PASSWORD           | Database password                     | (set by user)               |
+| SPRING_DATASOURCE_USERNAME           | Database username                     | himanshu               |
+| SPRING_DATASOURCE_PASSWORD           | Database password                     | password             |
 | SPRING_DATASOURCE_DRIVER_CLASS_NAME  | Database driver class name            | com.mysql.cj.jdbc.Driver |
 | SPRING_JPA_HIBERNATE_DDL_AUTO        | Hibernate schema management strategy  | update                    |
 | SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT | Hibernate dialect                   | org.hibernate.dialect.MySQL5Dialect |
