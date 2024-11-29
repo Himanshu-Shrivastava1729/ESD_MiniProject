@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Login from "./components/Login.jsx";
 import StudentList from "./components/StudentList";
 
+
 // Component to protect routes that require authentication
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("user"); // Check if token exists
